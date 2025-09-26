@@ -2,6 +2,8 @@ package com.thalysdev.calculei.model.salarioliquido;
 
 import java.math.BigDecimal;
 
+import com.thalysdev.calculei.utils.BigDecimalUtils;
+
 public class CalculadoraSalarioLiquidoResponse {
 
 	private BigDecimal rendimentos;
@@ -14,7 +16,7 @@ public class CalculadoraSalarioLiquidoResponse {
 
 	public BigDecimal getRendimentos() {
 
-		return rendimentos;
+		return BigDecimalUtils.getZeroSeNulo(rendimentos);
 	}
 
 	public void setRendimentos(BigDecimal rendimentos) {
@@ -24,7 +26,7 @@ public class CalculadoraSalarioLiquidoResponse {
 
 	public BigDecimal getSalarioLiquido() {
 
-		return salarioLiquido;
+		return BigDecimalUtils.getZeroSeNulo(salarioLiquido);
 	}
 
 	public void setSalarioLiquido(BigDecimal salarioLiquido) {
@@ -34,7 +36,7 @@ public class CalculadoraSalarioLiquidoResponse {
 
 	public BigDecimal getBeneficios() {
 
-		return beneficios;
+		return BigDecimalUtils.getZeroSeNulo(beneficios);
 	}
 
 	public void setBeneficios(BigDecimal beneficios) {
@@ -44,7 +46,7 @@ public class CalculadoraSalarioLiquidoResponse {
 
 	public BigDecimal getHorasExtras() {
 
-		return horasExtras;
+		return BigDecimalUtils.getZeroSeNulo(horasExtras);
 	}
 
 	public void setHorasExtras(BigDecimal horasExtras) {
@@ -54,7 +56,7 @@ public class CalculadoraSalarioLiquidoResponse {
 
 	public BigDecimal getDescontos() {
 
-		return descontos;
+		return BigDecimalUtils.getZeroSeNulo(descontos);
 	}
 
 	public void setDescontos(BigDecimal descontos) {
@@ -64,7 +66,7 @@ public class CalculadoraSalarioLiquidoResponse {
 
 	public BigDecimal getInss() {
 
-		return inss;
+		return BigDecimalUtils.getZeroSeNulo(inss);
 	}
 
 	public void setInss(BigDecimal inss) {
@@ -74,7 +76,7 @@ public class CalculadoraSalarioLiquidoResponse {
 
 	public BigDecimal getIrrf() {
 
-		return irrf;
+		return BigDecimalUtils.getZeroSeNulo(irrf);
 	}
 
 	public void setIrrf(BigDecimal irrf) {

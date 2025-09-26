@@ -19,61 +19,51 @@ public class CalculadoraSalarioLiquidoRequest {
 	public BigDecimal getSalarioBruto() {
 
 		return salarioBruto;
-
 	}
 
 	public void setSalarioBruto(BigDecimal salarioBruto) {
 
 		this.salarioBruto = salarioBruto;
-
 	}
 
 	public BigDecimal getDescontos() {
 
 		return descontos;
-
 	}
 
 	public void setDescontos(BigDecimal descontos) {
 
 		this.descontos = descontos;
-
 	}
 
 	public BigDecimal getBeneficios() {
 
 		return beneficios;
-
 	}
 
 	public void setBeneficios(BigDecimal beneficios) {
 
 		this.beneficios = beneficios;
-
 	}
 
 	public BigDecimal getHorasExtras() {
 
 		return horasExtras;
-
 	}
 
 	public void setHorasExtras(BigDecimal horasExtras) {
 
 		this.horasExtras = horasExtras;
-
 	}
 
 	public boolean isDeveCalcularDependentes() {
 
 		return deveCalcularDependentes;
-
 	}
 
 	public void setDeveCalcularDependentes(boolean deveCalcularDependentes) {
 
 		this.deveCalcularDependentes = deveCalcularDependentes;
-
 	}
 
 	public Integer getQuantidadeDependentes() {
@@ -82,30 +72,25 @@ public class CalculadoraSalarioLiquidoRequest {
 			return 0;
 
 		return quantidadeDependentes;
-
 	}
 
 	public void setQuantidadeDependentes(Integer quantidadeDependentes) {
 
 		this.quantidadeDependentes = quantidadeDependentes;
-
 	}
 
 	public static BigDecimal getBaseCalculoDependentePadrao2025() {
 
 		return BASE_CALCULO_DEPENDENTE_PADRAO_2025;
-
 	}
 
 	public BigDecimal getValorDependentesAReceber() {
 
 		BigDecimal valorDependentesAReceber = deveCalcularDependentes
-				? BigDecimalUtils.multiplicar(BASE_CALCULO_DEPENDENTE_PADRAO_2025,
-						BigDecimal.valueOf(getQuantidadeDependentes()))
+				? BigDecimalUtils.multiplicar(BASE_CALCULO_DEPENDENTE_PADRAO_2025, BigDecimal.valueOf(getQuantidadeDependentes()))
 				: BigDecimal.ZERO;
 
 		return valorDependentesAReceber;
-
 	}
 
 }

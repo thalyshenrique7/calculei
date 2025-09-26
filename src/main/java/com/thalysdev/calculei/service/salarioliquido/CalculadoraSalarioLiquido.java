@@ -61,31 +61,28 @@ public class CalculadoraSalarioLiquido {
 		response.setSalarioLiquido(salarioLiquido);
 
 		return response;
-
 	}
 
 	private BigDecimal calcularHorasExtras(BigDecimal horasExtras, BigDecimal baseCalculoSalario) {
 
-		BigDecimal horasExtrasAReceber = BigDecimalUtils
-				.ajustarEscala(BigDecimalUtils.dividir(baseCalculoSalario, HORAS_MENSAIS_TRABALHADAS_PADRAO), 2);
+		BigDecimal horasExtrasAReceber = BigDecimalUtils.ajustarEscala(BigDecimalUtils.dividir(baseCalculoSalario, HORAS_MENSAIS_TRABALHADAS_PADRAO),
+				2);
 
 		return BigDecimalUtils.multiplicar(horasExtrasAReceber, horasExtras).multiply(HORAS_EXTRAS_MULTIPLICADOR);
-
 	}
 
-	private BigDecimal atualizarBaseCalculoSalario(BigDecimal baseCalculoSalario, BigDecimal inssADescontar,
-			CalculadoraSalarioLiquidoRequest request) {
+	private BigDecimal atualizarBaseCalculoSalario(BigDecimal baseCalculoSalario, BigDecimal inssADescontar, CalculadoraSalarioLiquidoRequest request) {
 
-		return baseCalculoSalario.subtract(inssADescontar).subtract(request.getValorDependentesAReceber())
+		return baseCalculoSalario.subtract(inssADescontar).subtract(request.getValorDependentesAReceber()).subtract(request.getDescontos());
+	}
+
+	private BigDecimal getSalarioLiquidoAReceber(CalculadoraSalarioLiquidoRequest request, CalculadoraSalarioLiquidoResponse response) {
+
+		return request.getSalarioBruto()
+				.add(request.getBeneficios())
+				.add(response.getHorasExtras())
+				.subtract(response.getInss())
+				.subtract(response.getIrrf())
 				.subtract(request.getDescontos());
-
-	}
-
-	private BigDecimal getSalarioLiquidoAReceber(CalculadoraSalarioLiquidoRequest request,
-			CalculadoraSalarioLiquidoResponse response) {
-
-		return request.getSalarioBruto().add(request.getBeneficios()).add(response.getHorasExtras())
-				.subtract(response.getInss()).subtract(response.getIrrf()).subtract(request.getDescontos());
-
 	}
 }

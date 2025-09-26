@@ -21,11 +21,8 @@ public class CalculadoraSalarioLiquidoController {
 	private CalculadoraSalarioLiquido calculadoraSalarioLiquido;
 
 	@PostMapping
-	public ResponseEntity<CalculadoraSalarioLiquidoResponse> calculateNetSalary(
-			@RequestBody CalculadoraSalarioLiquidoRequest request) {
+	public ResponseEntity<CalculadoraSalarioLiquidoResponse> calculateNetSalary(@RequestBody CalculadoraSalarioLiquidoRequest request) {
 
-		return new ResponseEntity<CalculadoraSalarioLiquidoResponse>(
-				this.calculadoraSalarioLiquido.calcularSalarioLiquido(request), HttpStatus.OK);
-
+		return new ResponseEntity<CalculadoraSalarioLiquidoResponse>(this.calculadoraSalarioLiquido.calcularSalarioLiquido(request), HttpStatus.OK);
 	}
 }

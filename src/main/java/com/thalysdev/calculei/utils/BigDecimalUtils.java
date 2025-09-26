@@ -21,19 +21,16 @@ public class BigDecimalUtils {
 		BigDecimal resultado = valor.setScale(casasDecimais, RoundingMode.HALF_DOWN);
 
 		return nf.format(resultado);
-
 	}
 
 	public static BigDecimal ajustarEscala(BigDecimal valor, int escala) {
 
 		return getZeroSeNulo(valor).setScale(escala, RoundingMode.HALF_UP);
-
 	}
 
 	public static boolean menorQue(BigDecimal valor, BigDecimal outro) {
 
 		return comparar(valor, outro) == -1;
-
 	}
 
 	public static boolean menorOuIgualQue(BigDecimal valor, BigDecimal outro) {
@@ -41,25 +38,21 @@ public class BigDecimalUtils {
 		int resultado = comparar(valor, outro);
 
 		return resultado == -1 || resultado == 0;
-
 	}
 
 	public static boolean maiorQueZero(BigDecimal valor) {
 
 		return maiorQue(valor, BigDecimal.ZERO);
-
 	}
 
 	public static boolean menorQueZero(BigDecimal valor) {
 
 		return menorQue(valor, BigDecimal.ZERO);
-
 	}
 
 	public static boolean maiorQue(BigDecimal valor, BigDecimal outro) {
 
 		return comparar(valor, outro) == 1;
-
 	}
 
 	public static boolean maiorOuIgualQue(BigDecimal valor, BigDecimal outro) {
@@ -67,25 +60,21 @@ public class BigDecimalUtils {
 		int resultado = comparar(valor, outro);
 
 		return resultado == 1 || resultado == 0;
-
 	}
 
 	public static boolean diferenteDeZero(BigDecimal valor) {
 
 		return !ehZero(valor);
-
 	}
 
 	public static boolean ehZero(BigDecimal valor) {
 
 		return ehIgual(valor, BigDecimal.ZERO);
-
 	}
 
 	public static BigDecimal getZeroSeNulo(BigDecimal valor) {
 
 		return (valor == null) ? BigDecimal.ZERO : valor;
-
 	}
 
 	/**
@@ -98,61 +87,51 @@ public class BigDecimalUtils {
 	public static BigDecimal percentual(BigDecimal valor1, BigDecimal valor2) {
 
 		return dividirPorCem(multiplicar(valor1, valor2));
-
 	}
 
 	public static BigDecimal multiplicar(BigDecimal valor, BigDecimal multiplicador) {
 
 		return getZeroSeNulo(valor).multiply(getZeroSeNulo(multiplicador));
-
 	}
 
 	public static boolean naoEhIgual(BigDecimal valor1, BigDecimal valor2) {
 
 		return !ehIgual(valor1, valor2);
-
 	}
 
 	public static BigDecimal dividir(BigDecimal dividendo, BigDecimal divisor) {
 
 		return dividir(dividendo, divisor, 4);
-
 	}
 
 	public static BigDecimal dividir(BigDecimal dividendo, BigDecimal divisor, int escala) {
 
 		return getZeroSeNulo(dividendo).divide(divisor, escala, RoundingMode.HALF_EVEN);
-
 	}
 
 	public static BigDecimal dividirComEscala10(BigDecimal dividendo, BigDecimal divisor) {
 
 		return dividendo.divide(divisor, 10, RoundingMode.HALF_EVEN);
-
 	}
 
 	public static BigDecimal dividirPorCem(BigDecimal dividendo) {
 
 		return dividir(dividendo, CEM);
-
 	}
 
 	public static BigDecimal dividirPorCem(BigDecimal dividendo, int escala) {
 
 		return dividir(dividendo, CEM, escala);
-
 	}
 
 	public static boolean ehIgual(BigDecimal valor1, BigDecimal valor2) {
 
 		return comparar(valor1, valor2) == 0;
-
 	}
 
 	public static BigDecimal deString(String valor) {
 
 		return deString(valor, PRECISAO_MONETARIA);
-
 	}
 
 	public static BigDecimal deString(String valor, Integer casasDecimais) {
@@ -182,7 +161,6 @@ public class BigDecimalUtils {
 		}
 
 		return valorBigDecimal;
-
 	}
 
 	private static int comparar(BigDecimal valor, BigDecimal outro) {
@@ -194,6 +172,5 @@ public class BigDecimalUtils {
 			outro = BigDecimal.ZERO;
 
 		return valor.compareTo(outro);
-
 	}
 }

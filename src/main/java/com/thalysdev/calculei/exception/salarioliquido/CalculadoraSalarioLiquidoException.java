@@ -7,13 +7,11 @@ public class CalculadoraSalarioLiquidoException extends RuntimeException {
 	public CalculadoraSalarioLiquidoException(String mensagem) {
 
 		super(mensagem);
-
 	}
 
 	public CalculadoraSalarioLiquidoException(String mensagem, Exception exception) {
 
 		super(mensagem, exception);
-
 	}
 
 }

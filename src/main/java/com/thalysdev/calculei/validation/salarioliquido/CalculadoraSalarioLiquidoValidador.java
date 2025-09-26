@@ -13,7 +13,6 @@ public class CalculadoraSalarioLiquidoValidador {
 		BigDecimal baseCalculoSalario = request.getSalarioBruto();
 		if (BigDecimalUtils.menorOuIgualQue(baseCalculoSalario, BigDecimal.ZERO))
 			throw new CalculadoraSalarioLiquidoException("Salário bruto deve ser maior que 0.");
-
 	}
 
 }
